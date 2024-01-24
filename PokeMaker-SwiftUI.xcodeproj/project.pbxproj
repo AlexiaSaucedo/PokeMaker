@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1C4BB72B60BBC40098CBB0 /* NutritionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C4BB62B60BBC40098CBB0 /* NutritionList.swift */; };
 		EA8E587F2B5F74E30002A064 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E587E2B5F74E30002A064 /* NetworkManager.swift */; };
 		EA8E58812B5F762B0002A064 /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8E58802B5F762B0002A064 /* FoodData.swift */; };
 		EAE2CF5A2B574909003967C0 /* PokeMaker_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE2CF592B574909003967C0 /* PokeMaker_SwiftUIApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA1C4BB62B60BBC40098CBB0 /* NutritionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionList.swift; sourceTree = "<group>"; };
 		EA8E587E2B5F74E30002A064 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EA8E58802B5F762B0002A064 /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
 		EAE2CF562B574909003967C0 /* PokeMaker-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokeMaker-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA1C4BB52B60BBA40098CBB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA1C4BB62B60BBC40098CBB0 /* NutritionList.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EA8E587D2B5F64E50002A064 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		EAE2CF582B574909003967C0 /* PokeMaker-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				EA1C4BB52B60BBA40098CBB0 /* Views */,
 				EA8E587D2B5F64E50002A064 /* Models */,
 				EAE2CF592B574909003967C0 /* PokeMaker_SwiftUIApp.swift */,
 				EAE2CF5B2B574909003967C0 /* ContentView.swift */,
@@ -154,6 +165,7 @@
 				EA8E587F2B5F74E30002A064 /* NetworkManager.swift in Sources */,
 				EAE2CF5C2B574909003967C0 /* ContentView.swift in Sources */,
 				EAE2CF5A2B574909003967C0 /* PokeMaker_SwiftUIApp.swift in Sources */,
+				EA1C4BB72B60BBC40098CBB0 /* NutritionList.swift in Sources */,
 				EA8E58812B5F762B0002A064 /* FoodData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

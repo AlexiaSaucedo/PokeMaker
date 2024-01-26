@@ -28,12 +28,14 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(ingredient: Ingredient(id: "1", name: "Shrimp", category: "Protein"))
+    ContentView(ingredient: Ingredient(id: "1", name: "Shrimp", category: "Protein", img: "ing1", quantityEx: "20 g"))
 }
 
 struct PokeCard: View {
     
     let ing : Ingredient
+    //var recipe: [String]
+    @State var quantity: String = ""
     
     var body: some View {
         
@@ -42,44 +44,42 @@ struct PokeCard: View {
                 .foregroundStyle(Color(uiColor: UIColor(red: 0.97, green: 0.88, blue: 0.85, alpha: 1.00)))
                 .frame(height: 500)
                 .padding()
-            VStack {
-                Text("PROTEIN: \(ing.name)")
+            VStack(spacing: 10) {
+                Text("Choose your \(ing.category)")
                     .bold()
-                    .padding()
-                IngredientView(n: ing.id)
+                    .padding([.top], 20)
+                IngredientView(image: ing.img)
+                HStack {
+                    TextField("20 g", text: $quantity)
+                        .frame(width: 60)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("\(ing.name)")
+                }
+                Button(action:{}){
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("Add to my Bowl")
+                    }
+                } .buttonStyle(.bordered)
                 Image("poke1")
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
-                .padding()
+                    .padding([.bottom], 20)
             } .frame(height: 500)
         }
     }
 }
 
 struct IngredientView: View {
-    let n: String
+    let image: String
     var body: some View {
-        
         ZStack {
             Circle()
                 .foregroundStyle(.white)
-            Image("ing\(n)")
+            Image("\(image)")
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
         }.frame(width: 150, height: 150)
     }
 }
 
-//Continue with Networking
-
-struct Ingredient: Identifiable {
-    let id: String
-    let name: String
-    let category: String
-}
-
-let ingredients = [
-    Ingredient(id: "1", name: "Shrimp", category: "Protein"),
-    Ingredient(id: "2", name: "Salmon", category: "Protein"),
-    Ingredient(id: "3", name: "Chicken", category: "Protein")
-]

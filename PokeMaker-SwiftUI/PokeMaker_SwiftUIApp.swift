@@ -11,7 +11,7 @@ import SwiftUI
 struct PokeMaker_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(ingredient: Ingredient(id: "1", name: "Shrimp", category: "Protein"))
+            ContentView(ingredient: Ingredient(id: "1", name: "Shrimp", category: "Protein", img: "ing1", quantityEx: "20 g"))
         }
     }
 }

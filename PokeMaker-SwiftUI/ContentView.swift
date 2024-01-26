@@ -7,19 +7,26 @@
 
 import SwiftUI
 
+class GlobalData: ObservableObject {
+    @Published var recipe: [String]?
+    @Published var ingredient : Ingredient = Ingredient(id: "1", name: "Shrimp", category: "Protein", img: "ing1", quantityEx: "20 g")
+    
+}
+
 struct ContentView: View {
     
-    @State var ingredient: Ingredient
+    //@State var ingredient: Ingredient
+    @ObservedObject var globalData = GlobalData()
     
     var body: some View {
         VStack {
-            PokeCard(ing: ingredient)
+            PokeCard(ing: globalData.ingredient)
             Text("Poke Bowls")
                 .font(.largeTitle)
                 .bold()
             Text("Not sure which one?")
             Button("Give me some ingredients"){
-                self.ingredient = ingredients.randomElement()!
+                globalData.ingredient = ingredients.randomElement()!
             } .buttonStyle(.borderedProminent)
 
         }
@@ -28,7 +35,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(ingredient: Ingredient(id: "1", name: "Shrimp", category: "Protein", img: "ing1", quantityEx: "20 g"))
+    ContentView()
 }
 
 struct PokeCard: View {

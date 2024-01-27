@@ -8,7 +8,7 @@
 import SwiftUI
 
 class GlobalData: ObservableObject {
-    @Published var recipe: [String]?
+    @Published var recipe: [String] = []
     @Published var ingredient : Ingredient = Ingredient(id: "1", name: "Shrimp", category: "Protein", img: "ing1", quantityEx: "20 g")
     
 }
@@ -16,7 +16,7 @@ class GlobalData: ObservableObject {
 struct ContentView: View {
     
     //@State var ingredient: Ingredient
-    @ObservedObject var globalData = GlobalData()
+    @StateObject var globalData = GlobalData()
     
     var body: some View {
         VStack {
@@ -29,7 +29,7 @@ struct ContentView: View {
                 globalData.ingredient = ingredients.randomElement()!
             } .buttonStyle(.borderedProminent)
 
-        }
+        }.environmentObject(globalData)
       
     }
 }
@@ -40,6 +40,7 @@ struct ContentView: View {
 
 struct PokeCard: View {
     
+    @EnvironmentObject var globalData: GlobalData
     let ing : Ingredient
     //var recipe: [String]
     @State var quantity: String = ""
@@ -58,11 +59,15 @@ struct PokeCard: View {
                 IngredientView(image: ing.img)
                 HStack {
                     TextField("20 g", text: $quantity)
-                        .frame(width: 60)
+                        .frame(width: 70)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Text("\(ing.name)")
                 }
-                Button(action:{}){
+                Button(action:{
+                    globalData.recipe.append("\(quantity) \(ing.name)")
+                    print(globalData.recipe)
+                    
+                }){
                     HStack {
                         Image(systemName: "plus")
                         Text("Add to my Bowl")
@@ -73,7 +78,7 @@ struct PokeCard: View {
                     .aspectRatio(1, contentMode: .fit)
                     .padding([.bottom], 20)
             } .frame(height: 500)
-        }
+        }.environmentObject(GlobalData())
     }
 }
 
